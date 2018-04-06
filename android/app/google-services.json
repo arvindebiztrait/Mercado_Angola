@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "974602923853",
+    "firebase_url": "https://eighth-study-200113.firebaseio.com",
+    "project_id": "eighth-study-200113",
+    "storage_bucket": "eighth-study-200113.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974602923853:android:1e6f36da374907e8",
+        "android_client_info": {
+          "package_name": "com.domingo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974602923853-1bc81kr3715028fvukeaea9889r42v0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHZGqLa-rw1MlqQZA_fjTCiQ3__exNKPs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
