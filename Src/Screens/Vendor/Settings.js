@@ -540,8 +540,8 @@ export default class Settings extends Component<Props> {
                 {/* </KeyboardAwareScrollView>   */}
 
             </View>
-
-            <View style = {{
+            {/* Uncomment Code when need to implement Payments */}
+            {/* <View style = {{
               width:'100%',
               flex:250,
               // backgroundColor:'green',
@@ -550,24 +550,24 @@ export default class Settings extends Component<Props> {
               justifyContent:'center',
               alignItems:'center'
             }}>
-            <TouchableWithoutFeedback style={{
-              backgroundColor:'red',
-              borderRadius:10,
-              overflow:'hidden',
-                }} onPress={this.onClickRenewSubscription.bind(this)}>
-                <View style={{
-                  borderRadius:20,
-                  overflow:'hidden'
-                }}>
-                  <Text style={{
-                    backgroundColor:'rgba(0,165,235,1)',
-                    color:'white',
-                    padding:10,
-                    borderRadius:10,
-                }}>{LS.LString.renewSubText}</Text>
-                </View>
+              <TouchableWithoutFeedback style={{
+                backgroundColor:'red',
+                borderRadius:10,
+                overflow:'hidden',
+                  }} onPress={this.onClickRenewSubscription.bind(this)}>
+                  <View style={{
+                    borderRadius:20,
+                    overflow:'hidden'
+                  }}>
+                    <Text style={{
+                      backgroundColor:'rgba(0,165,235,1)',
+                      color:'white',
+                      padding:10,
+                      borderRadius:10,
+                  }}>{LS.LString.renewSubText}</Text>
+                  </View>
               </TouchableWithoutFeedback>
-          </View>
+            </View> */}
           </View>
         </View>
         </View>
