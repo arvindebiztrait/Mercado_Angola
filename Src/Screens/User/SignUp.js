@@ -1011,7 +1011,7 @@ export default class SignUp extends Component<Props> {
       alert(LS.LString.vNameText)
       return false
     }
-    else if (this.state.address == '') {
+    else if (this.state.userType === 'Vendor' && this.state.address == '') {
       alert(LS.LString.vAddressText)
       return false
     }
@@ -1027,11 +1027,15 @@ export default class SignUp extends Component<Props> {
       alert(LS.LString.vIndustryText)
       return false
     }
-    else if (this.state.contact == '') {
+    else if (this.state.userType === 'Vendor' && this.state.contact == '') {
       alert(LS.LString.vContactText)
       return false
     }
-    else if (this.state.contact.length < 9) {
+    else if (this.state.userType === 'Vendor' && this.state.contact.length < 9) {
+      alert(LS.LString.vvContactText)
+      return false
+    }
+    else if (this.state.contact.length > 0 && this.state.contact.length < 9) {
       alert(LS.LString.vvContactText)
       return false
     }

@@ -86,6 +86,7 @@ export default class ProfileVendor extends Component<Props> {
         isForUpload:false,
         removeImageData:{},
         cnt:0,
+        address:'',
     };
   }
 
@@ -387,14 +388,14 @@ export default class ProfileVendor extends Component<Props> {
         var param = {
           'UserID': this.state.userDetail.UserID,
           // 'UserName': this.state.name,
-          // 'Address':this.state.address,
+          'Address':this.state.address,
           // 'Password':this.state.password,
-          // 'City': this.state.city,
-          // 'AreaName':this.state.areaName,
-          // 'StateName': this.state.street,
-          // 'CountryName': this.state.country,
-          // 'Latitude': this.state.latitude,
-          // 'Longitude': this.state.longitude,
+          'City': this.state.city,
+          'AreaName':this.state.areaName,
+          'StateName': this.state.street,
+          'CountryName': this.state.country,
+          'Latitude': this.state.latitude,
+          'Longitude': this.state.longitude,
           'image':this.state.photoResponse != null ?  this.state.userImage : null,
           'BusinessName':this.state.businessName,
           'Industry': this.state.industryIds, //this.state.arrCategory[this.state.selectedIndexOfCatgeory].CategoryID,
@@ -484,6 +485,11 @@ export default class ProfileVendor extends Component<Props> {
       arrImages:arrImg
     })
     console.log('After Upload:=',arrImg)
+  }
+
+  onClickAddress() {
+    console.log("onClickAddress clicked");
+    this.props.navigation.push('mapScreen')
   }
 
   render() {
@@ -732,7 +738,11 @@ export default class ProfileVendor extends Component<Props> {
             }}>
             </View>
 
-            {/* Facebook Link */}
+            {/* Address */}
+            <TouchableWithoutFeedback style={{
+                flex:100,
+                flexDirection:'row',
+            }} onPress={this.onClickAddress.bind(this)}>
             <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
                 flex:100,
                 marginLeft:15,
@@ -740,6 +750,39 @@ export default class ProfileVendor extends Component<Props> {
                 borderColor:'grey',
                 borderBottomWidth:1,
                 flexDirection:'row',
+                justifyContent:'center',
+                alignItems:'center',
+                overflow:'hidden',
+            }}>
+              <Text
+              numberOfLines={1}  
+              style={{width:'90%', alignContent:'center', alignItems:'center', justifyContent:'center'}}>{this.state.address ? this.state.address : 'Address'}</Text>
+              <Image style={{
+                  // backgroundColor:'yellow',
+                  flex:1,
+                  width:'10%',
+                  height:'100%'
+                }}
+                source={require('Domingo/Src/images/map.png')}
+                resizeMode='contain'
+                />
+            </View>
+            </TouchableWithoutFeedback>
+
+            <View style={{
+                flex:76,
+            }}>
+            </View>
+
+            {/* Facebook Link */}
+            <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
+                flex:110,
+                marginLeft:15,
+                marginRight:15,
+                borderColor:'grey',
+                borderBottomWidth:1,
+                flexDirection:'row',
+                // backgroundColor:'red',
             }}>
               <TextInput style={{
                 paddingBottom:Platform.ios === 'ios' ? 0 : 5,
@@ -781,7 +824,7 @@ export default class ProfileVendor extends Component<Props> {
 
             {/* Tweeter Link */}
             <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
-                flex:100,
+                flex:110,
                 marginLeft:15,
                 marginRight:15,
                 borderColor:'grey',
@@ -828,7 +871,7 @@ export default class ProfileVendor extends Component<Props> {
 
             {/* Google Link */}
             <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
-                flex:100,
+                flex:110,
                 marginLeft:15,
                 marginRight:15,
                 borderColor:'grey',
@@ -1640,6 +1683,10 @@ removeImageFromLocalArray(rowData) {
       alert(LS.LString.vDescriptionText)
       return false
     }
+    else if (this.state.address.trim() == '') {
+      alert(LS.LString.vAddressText)
+      return false
+    }
     else if (this.state.contact == '') {
       alert(LS.LString.vContactText)
       return false
@@ -1654,7 +1701,7 @@ removeImageFromLocalArray(rowData) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2048,
+    flex: 2048+176,
     flexDirection: 'column',
     // justifyContent: 'center',
     // alignItems: 'center',

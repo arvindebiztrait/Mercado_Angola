@@ -28,6 +28,7 @@ import EventEmitter from "react-native-eventemitter";
 import ImagePicker from 'react-native-image-picker';
 import Permissions from 'react-native-permissions';
 import ActionSheet from 'react-native-actionsheet';
+import LS from 'Domingo/Src/Screens/GeneralClass/LocalizationStrings';
 
 export const STATUSBAR_HEIGHT  = Platform.OS === 'ios' ? 0 : StatusBar.currentHeight;
 const CANCEL_INDEX = 0;
@@ -235,7 +236,7 @@ export default class Profile extends Component<Props> {
               textAlign:'center',
               alignItems:'center',
               fontFamily:'Oswald-Regular',
-            }}>PROFILE</Text>
+            }}>{LS.LString.profileCapText}</Text>
           <TouchableWithoutFeedback style={{
                 }} onPress={this.onClickEdit.bind(this)}>
             <Image style={{
@@ -499,7 +500,7 @@ export default class Profile extends Component<Props> {
                   justifyContent:'center',
                   fontSize:15,
                 }}>
-                  SAVE
+                  {LS.LString.saveText}
                 </Text>
               </TouchableHighlight>
             </View>
@@ -573,7 +574,7 @@ export default class Profile extends Component<Props> {
       }
     }
     else {
-      alert("Please click on edit icon to edit details")
+      alert(LS.LString.vEditProfileText)
     }
   }
 
@@ -713,12 +714,12 @@ export default class Profile extends Component<Props> {
                 console.log('called error part')
                 Alert.alert(
                     Constant.APP_NAME,
-                    'Camera permission not allowed, Please allow camera permission from setting.',
+                    LS.LString.cameraPermissionText,
                     Platform.OS == 'ios' ? 
                     [
-                        {text: 'Cancel', onPress: () => console.log('cancel')},
-                        {text: 'Okay', onPress: () => {Permissions.openSettings()}}, 
-                    ] : [{text: 'Okay', onPress: () => console.log('cancel')}],
+                        {text: LS.LString.cancelText, onPress: () => console.log('cancel')},
+                        {text: LS.LString.okText, onPress: () => {Permissions.openSettings()}}, 
+                    ] : [{text: LS.LString.okText, onPress: () => console.log('cancel')}],
                     { cancelable: false }
                 )
             }
@@ -754,12 +755,12 @@ export default class Profile extends Component<Props> {
                     console.log('called error part')
                     Alert.alert(
                         Constant.APP_NAME,
-                        'Gallery permission not allowed, Please allow gallery permission from setting.',
+                        LS.LString.galleryPermissionText,
                         Platform.OS == 'ios' ? 
                         [
-                            {text: 'Cancel', onPress: () => console.log('cancel')},
-                            {text: 'Okay', onPress: () => {Permissions.openSettings()}}, 
-                        ] : [{text: 'Okay', onPress: () => console.log('cancel')}],
+                            {text: LS.LString.cancelText, onPress: () => console.log('cancel')},
+                            {text: LS.LString.okText, onPress: () => {Permissions.openSettings()}}, 
+                        ] : [{text: LS.LString.cancelText, onPress: () => console.log('cancel')}],
                         { cancelable: false }
                     )
               }
@@ -768,30 +769,30 @@ export default class Profile extends Component<Props> {
 
   validateData() {
     if (this.state.name.trim() == '') {
-      alert('Please enter name')
+      alert(LS.LString.vNameText)
       return false
     }
     else if (this.state.address.trim() == '') {
-      alert('Please select address')
+      alert(LS.LString.vAddressText)
       return false
     }
 
     if (this.state.password.trim().length > 0) {
       let regPassword = /^(?=.*[\d])(?=.*[!@#$%^&*])[\w!@#$%^&*]{6,16}$/ ;
       if (this.state.password.length < 6) {
-        alert('Password should be greater than or equal to 6 digit')
+        alert(LS.LString.vvPasswordText)
         return false
       }
       else if (regPassword.test(this.state.password) === false) {
-        alert('Password must be 6 to 16 character long and atleast one special character and digit contains')
+        alert(LS.LString.vvFormatPasswordText)
         return false
       }
       else if (this.state.confirmPassword == '') {
-        alert('Please enter confirm password')
+        alert(LS.LString.vCPassword)
         return false
       }
       else if (this.state.password != this.state.confirmPassword) {
-        alert('Password and Confirm Password must be matched')
+        alert(LS.LString.vPCPText)
         return false
       }
     }

@@ -73,7 +73,7 @@ let Localization = new LocalizedStrings({
         vLogoutText:'Are you sure you want to signout?',
 
         //ProfileVendor Screen
-        profileCapText:'Profile',
+        profileCapText:'PROFILE',
         descText:'Description',
         fLinkText:'Facebook Link',
         tLinkText:'Twitter Link',
