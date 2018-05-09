@@ -15,6 +15,8 @@ target 'Domingo' do
 
     pod 'ReactNativeLocalization', :path => '../node_modules/react-native-localization'
 
+    pod 'RNShare', :path => '../node_modules/react-native-share'
+
   end
 
   target 'DomingoTests' do

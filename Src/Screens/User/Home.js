@@ -62,6 +62,7 @@ export default class Home extends Component<Props> {
     // });
     Events.on('receiveResponse', 'receiveResponseHome', this.onReceiveResponse.bind(this))
     Events.on('updateUI', 'updateUIHome', this.onUpdateUI.bind(this))
+    Events.on('removeFuseLocation', 'removeFuseLocationHome', this.removeFusedLocation.bind(this))
     this.onWebServiceCallingForCategoryList()
 
     console.log("componentDidMount")
@@ -187,6 +188,17 @@ export default class Home extends Component<Props> {
 
   componentWillUnmount() {
     // navigator.geolocation.clearWatch(this.watchId);
+    if (Platform.OS === 'ios') {
+
+    }
+    else {
+      // FusedLocation.off(this.subscription);
+      // // FusedLocation.off(this.errSubscription);
+      // FusedLocation.stopLocationUpdates();
+    }
+  }
+
+  removeFusedLocation() {
     if (Platform.OS === 'ios') {
 
     }

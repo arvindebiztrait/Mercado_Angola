@@ -87,6 +87,7 @@ export default class ProfileVendor extends Component<Props> {
         removeImageData:{},
         cnt:0,
         address:'',
+        isShowSubscriptionNotes: true,
     };
   }
 
@@ -1067,7 +1068,9 @@ export default class ProfileVendor extends Component<Props> {
         
         </View>        
         {this.loadChangePasswordView()}
+        
         </View>
+
         <ActionSheet
           ref='industrySheet'
           options={this.state.arrIndustry}
@@ -1081,6 +1084,9 @@ export default class ProfileVendor extends Component<Props> {
           onPress={this.onImageOptionSelection.bind(this)}/>    
         
         </KeyboardAwareScrollView>
+
+        {this.loadFreeSubscriptionNotesView()}
+
         { isShowHud == true ? <ActivityIndicator
                     color={'rgba(0,165,235,1)'}    //rgba(254,130,1,0.5)'
                     size={'large'}
@@ -1089,6 +1095,60 @@ export default class ProfileVendor extends Component<Props> {
                 }
       </View>
     );
+  }
+
+  loadFreeSubscriptionNotesView() {
+    return(
+      this.state.isShowSubscriptionNotes ? 
+      <View style={{
+        position:'absolute',
+        width:Constant.DEVICE_WIDTH-20,
+        marginTop:70,
+        marginLeft:10,
+        height:50,
+        shadowColor: 'gray',
+        shadowOpacity: 0.5,
+        shadowOffset:{ width: 0, height: 1 },
+        backgroundColor:'white',
+        zIndex:2,
+        borderRadius:5,
+        flexDirection:'row',
+        alignItems:'center',
+        borderColor:'gray',
+        borderWidth:1,
+      }}>
+        <Text style={{
+          width: Constant.DEVICE_WIDTH-60,
+          // backgroundColor: 'red',
+          fontSize: 17,
+          textAlign:'center',
+        }}>{LS.LString.freeSubscriptionNotesText}</Text>
+
+        <TouchableWithoutFeedback style={{
+                }} onPress={this.onClickHideSubscriptionNotes.bind(this)}>
+            <Image style={{
+                position:'relative',
+                // backgroundColor:'red',
+                width:40,
+                height:40,
+                // marginTop:Platform.OS === 'ios' ? 4 : 0,
+                marginRight:10
+              }}
+              source={require('Domingo/Src/images/close-red.png')}
+              resizeMethod='resize'
+              resizeMode='center'
+            />
+          </TouchableWithoutFeedback>
+      </View>
+      : 
+      undefined
+    )
+  }
+
+  onClickHideSubscriptionNotes() {
+    this.setState({
+      isShowSubscriptionNotes:false
+    })
   }
 
   loadImages() {

@@ -28,6 +28,7 @@ import Events from 'react-native-simple-events';
 import ws from 'Domingo/Src/Screens/GeneralClass/webservice'; 
 import LS from 'Domingo/Src/Screens/GeneralClass/LocalizationStrings';
 import ActionSheet from 'react-native-actionsheet';
+import Share, {ShareSheet, Button} from 'react-native-share';
 
 export const STATUSBAR_HEIGHT  = Platform.OS === 'ios' ? 0 : StatusBar.currentHeight;
 
@@ -43,7 +44,7 @@ export default class MenuScreen extends Component<Props> {
         userName:'Person Name',
         email:'sample@example.com',
         userType:1,
-        userDetail:'',
+        userDetail:{},
         imgUrl:'',
         isShowHud:false,
         languageId:'pt',
@@ -74,7 +75,7 @@ export default class MenuScreen extends Component<Props> {
           })
       } 
     }).done();
-  
+
   }
 
   onReceiveResponse (responceData) { 
@@ -83,6 +84,7 @@ export default class MenuScreen extends Component<Props> {
       console.log('responceData:=',responceData)
       this.setState({isShowHud: false,isDisable:false})
       if (responceData.Status == true) {        
+        
         var userData = JSON.stringify(responceData.Results.Data)
         AsyncStorage.setItem('USERDETAIL',userData)
         this.proceedToChangeUserType()
@@ -441,30 +443,58 @@ export default class MenuScreen extends Component<Props> {
           flexDirection:'row',
         }}>
           <View style={{height:'100%',width:15}}></View>
-          <TouchableWithoutFeedback onPress={this.onClickLogout.bind(this)}>
-          
-            <View style={{
-              height:'100%',
-              width:80, 
-              // backgroundColor:'pink', 
-              // flex:1, 
-              flexDirection:'column',
-              alignItems:'center'
-            }}>
-              <Image style={{
-                    // backgroundColor:'rgba(0,165,235,1)',
-                    // flex:1,
-                    width:40,
-                    height:40,
-                  }}
-                  source={require('Domingo/Src/images/logout.png')}
-                  />
-              <Text style={{
-                fontSize:21,
-                color:'white'
-              }}>{LS.LString.logoutText}</Text>  
-            </View>
-          </TouchableWithoutFeedback>
+
+          {'isGuestUser' in this.state.userDetail ? 
+            <TouchableWithoutFeedback onPress={this.onClickLogout.bind(this)}>
+            
+              <View style={{
+                height:'100%',
+                width:80, 
+                // backgroundColor:'pink', 
+                // flex:1, 
+                flexDirection:'column',
+                alignItems:'center'
+              }}>
+                <Image style={{
+                      // backgroundColor:'rgba(0,165,235,1)',
+                      // flex:1,
+                      width:40,
+                      height:40,
+                    }}
+                    // source={require('Domingo/Src/images/logout.png')}
+                    />
+                <Text style={{
+                  fontSize:21,
+                  color:'white'
+                }}>{LS.LString.loginTextSmall}</Text>  
+              </View>
+            </TouchableWithoutFeedback>
+          :
+            <TouchableWithoutFeedback onPress={this.onClickLogout.bind(this)}>
+            
+              <View style={{
+                height:'100%',
+                width:80, 
+                // backgroundColor:'pink', 
+                // flex:1, 
+                flexDirection:'column',
+                alignItems:'center'
+              }}>
+                <Image style={{
+                      // backgroundColor:'rgba(0,165,235,1)',
+                      // flex:1,
+                      width:40,
+                      height:40,
+                    }}
+                    source={require('Domingo/Src/images/logout.png')}
+                    />
+                <Text style={{
+                  fontSize:21,
+                  color:'white'
+                }}>{LS.LString.logoutText}</Text>  
+              </View>
+            </TouchableWithoutFeedback>
+        } 
 
           <View style={{
             height:'100%',
@@ -554,6 +584,76 @@ export default class MenuScreen extends Component<Props> {
       
         }
         
+        {Platform.OS === 'ios' ? 
+          <TouchableHighlight style={{position:'absolute'}}onPress={this.onClickShareButton.bind(this)}>
+            <View style={{
+              height:40,
+              width:40,
+              // backgroundColor:'grey',
+              position:'absolute',
+              zIndex:5,
+              marginTop:35,
+              marginLeft: Constant.DEVICE_WIDTH - 60,
+              alignItems:'center',
+              // borderColor:'white',
+              // borderWidth:1,
+              borderRadius:10,
+              justifyContent:'center'
+            }}>
+              <Image style={{
+                  position:'relative',
+                  // backgroundColor:'red',
+                  width:40,
+                  height:40,
+                  // marginTop:Platform.OS === 'ios' ? 4 : 0,
+                  marginRight:10
+                }}
+                source={require('Domingo/Src/images/share-icon.png')}
+                // resizeMethod='resize'
+                resizeMode='contain'
+              />
+            </View>
+          </TouchableHighlight>  
+          :
+          
+            <View style={{
+              height:40,
+              width:40,
+              // backgroundColor:'grey',
+              position:'absolute',
+              zIndex:5,
+              marginTop:20,
+              marginLeft: Constant.DEVICE_WIDTH - 60,
+              alignItems:'center',
+              // borderColor:'white',
+              // borderWidth:1,
+              borderRadius:10,
+              justifyContent:'center'
+            }}>
+
+              <TouchableHighlight style={{
+                position:'absolute',
+                height:'100%',  
+                width:'100%',
+              }} onPress={this.onClickShareButton.bind(this)}>
+
+                <Image style={{
+                    position:'relative',
+                    // backgroundColor:'red',
+                    width:40,
+                    height:40,
+                    // marginTop:Platform.OS === 'ios' ? 4 : 0,
+                    marginRight:10
+                  }}
+                  source={require('Domingo/Src/images/share-icon.png')}
+                  // resizeMethod='resize'
+                  resizeMode='contain'
+                />
+
+              </TouchableHighlight>
+            </View>
+          
+        }
 
         <ActionSheet
             ref='laguageSheet'
@@ -563,6 +663,20 @@ export default class MenuScreen extends Component<Props> {
         
       </View>
     );
+  }
+
+  onClickShareButton() {
+    console.log("onClickShareButton")
+    var strMsg = "Mercado Angola Application For IOS Link: " + "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8" + " Android Link: " + "https://play.google.com/store/apps/details?id=com.domingo"
+
+    let shareOptions = {
+      title: "Mercado Angola",
+      message: strMsg,
+      url: Platform.OS === 'ios' ? "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8" : "https://play.google.com/store/apps/details?id=com.domingo",
+      subject: "Share Mercado Angola" //  for email
+    };
+
+    Share.open(shareOptions);
   }
 
   onClickLanguage() {
@@ -611,46 +725,61 @@ export default class MenuScreen extends Component<Props> {
 
   onClickSwitch() {
     console.log('onClickSwitch:=',)
-    var msg = ''
 
-    if (this.state.userType == 1) {
-      msg = LS.LString.vSwitchUserText
+    if ('isGuestUser' in this.state.userDetail) {
+      Alert.alert(
+        'Guest User',
+        'You are guest user, Please login to access this features',
+        [
+          {text: LS.LString.cancelText, onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: LS.LString.okText, onPress: () => this.onClickLoginForGuest()},
+        ],
+        { cancelable: false }
+      )
     }
     else {
-      msg = LS.LString.vSwitchVendorText
-    }
+      var msg = ''
 
-    Alert.alert(
-      LS.LString.userTypeChText,
-      msg,
-      [
-        {text: LS.LString.cancelText, onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-        {text: LS.LString.okText, onPress: () => this.onWebServiceCallingForSwitchUser()},
-      ],
-      { cancelable: false }
-    )
+      if (this.state.userType == 1) {
+        msg = LS.LString.vSwitchUserText
+      }
+      else {
+        msg = LS.LString.vSwitchVendorText
+      }
+
+      Alert.alert(
+        LS.LString.userTypeChText,
+        msg,
+        [
+          {text: LS.LString.cancelText, onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: LS.LString.okText, onPress: () => this.onWebServiceCallingForSwitchUser()},
+        ],
+        { cancelable: false }
+      )
+    }
     return 
   }
 
   proceedToChangeUserType() {
-    if (this.state.userType === 1) {
-      AsyncStorage.setItem("userType", "2");
-      this.state.userType=2
-      this.setState({
-        userType:2
-      },)      
-      this.props.navigation.navigate('DrawerClose')
-      this.props.navigation.navigate('profileVendor');
-    }
-    else {
-      AsyncStorage.setItem("userType", "1");
-      this.state.userType=1
-      this.setState({
-        userType:1
-      },)      
-      this.props.navigation.navigate('DrawerClose')
-      this.props.navigation.navigate('home');
-    }
+      if (this.state.userType === 1) {
+        // Events.trigger("removeFuseLocation",'')
+        AsyncStorage.setItem("userType", "2");
+        this.state.userType=2
+        this.setState({
+          userType:2
+        },)      
+        this.props.navigation.navigate('DrawerClose')
+        this.props.navigation.navigate('profileVendor');
+      }
+      else {
+        AsyncStorage.setItem("userType", "1");
+        this.state.userType=1
+        this.setState({
+          userType:1
+        },)      
+        this.props.navigation.navigate('DrawerClose')
+        this.props.navigation.navigate('home');
+      }
   }
 
   onResetHome() {
@@ -678,13 +807,37 @@ export default class MenuScreen extends Component<Props> {
   onClickProfile() {
     // this.props.navigation.navigate('profile')
     if (this.state.userType == 1) {
-      this.props.navigation.navigate('DrawerClose');
-      this.props.navigation.push('profile');
+      if ('isGuestUser' in this.state.userDetail) {
+        Alert.alert(
+          'Guest User',
+          'You are guest user, Please login to access this feature',
+          [
+            {text: LS.LString.cancelText, onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+            {text: LS.LString.okText, onPress: () => this.onClickLoginForGuest()},
+          ],
+          { cancelable: false }
+        )
+      }
+      else {
+        this.props.navigation.navigate('DrawerClose');
+        this.props.navigation.push('profile');
+      }
     }
     else {
       this.props.navigation.navigate('DrawerClose');
       this.props.navigation.navigate('profileVendor');
     }
+  }
+
+  onClickLoginForGuest() {
+    AsyncStorage.removeItem('SIGNINSTATUS')
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [
+          NavigationActions.navigate({ routeName: 'login' })
+      ]
+    });
+    this.props.navigation.dispatch(resetAction);
   }
 
   onClickHome() {
@@ -706,7 +859,12 @@ export default class MenuScreen extends Component<Props> {
 
   onClickLogout() {
     // AsyncStorage.removeItem('SIGNINSTATUS',this.navigateToLogin())
-    this.onWebServiceCallingForLogout()
+    if ('isGuestUser' in this.state.userDetail) {
+      this.onClickLoginForGuest()
+    }
+    else {
+      this.onWebServiceCallingForLogout()
+    }
   }
 
   navigateToLogin() {

@@ -71,6 +71,7 @@ let Localization = new LocalizedStrings({
         vSwitchVendorText:'You are currently vendor, are you sure to become end user?',
         userTypeChText:'User Type Change',
         vLogoutText:'Are you sure you want to signout?',
+        loginTextSmall:'Login',
 
         //ProfileVendor Screen
         profileCapText:'PROFILE',
@@ -89,6 +90,7 @@ let Localization = new LocalizedStrings({
         vEditProfileText:'Please click on edit icon to edit details',
         vDescriptionText:'Please enter description',
         industryPlaceHolderText:'Profession Type / Industry',
+        freeSubscriptionNotesText:'Free Subscription plan will expire on 31/07/18',
 
         //Settings Screen
         settingsTitle:'SETTINGS',
@@ -225,6 +227,7 @@ let Localization = new LocalizedStrings({
         vSwitchVendorText:'É vendedor de serviços, quer se tornar comprador de serviços?',
         userTypeChText:'Mudar tipo de usuario',
         vLogoutText:'Quer Sair?',
+        loginTextSmall:'Login',
 
         //ProfileVendor Screen
         profileCapText:'Perfil',
@@ -243,6 +246,7 @@ let Localization = new LocalizedStrings({
         vEditProfileText:'Clicar no icon Detalhes para editar detalhes',
         vDescriptionText:'Inserir a descrição',
         industryPlaceHolderText:'Profissão Type / industria',
+        freeSubscriptionNotesText:'Registra-se gratis, promocao termina dia 31/07/18',
 
         //Settings Screen
         settingsTitle:'Configurações',

@@ -517,6 +517,58 @@ export default class Login extends Component<Props> {
             </View>
     
         }
+
+        {Platform.OS === 'ios' ? 
+          <TouchableHighlight style={{position:'absolute'}}onPress={this.onClickGuestUser.bind(this)}>
+            <View style={{
+              height:25,
+              width:80,
+              // backgroundColor:'grey',
+              position:'absolute',
+              zIndex:50,
+              marginTop:35,
+              marginLeft:Constant.DEVICE_WIDTH - 100,
+              alignItems:'center',
+              borderColor:'gray',
+              borderWidth:1,
+              borderRadius:10,
+              justifyContent:'center'
+            }}>
+              <Text>
+                Guest User
+              </Text>
+            </View>
+          </TouchableHighlight>
+        :      
+            undefined
+          // // <TouchableHighlight style={{position:'absolute'}}onPress={this.onClickLanguage.bind(this)}>
+          //   <View style={{
+          //     height:25,
+          //     width:80,
+          //     // backgroundColor:'grey',
+          //     position:'absolute',
+          //     zIndex:50,
+          //     marginTop:15,
+          //     marginLeft:Constant.DEVICE_WIDTH - 100,
+          //     alignItems:'center',
+          //     borderColor:'gray',
+          //     borderWidth:1,
+          //     borderRadius:10,
+          //     justifyContent:'center'
+          //   }}>
+          //     <TouchableWithoutFeedback style={{
+          //       position:'absolute',
+          //       height:'100%',  
+          //       width:'100%',
+          //     }}onPress={this.onClickGuestUser.bind(this)}>
+          //     <Text style={{
+          //       textAlign:'center',
+          //     }}>
+          //       Guest User
+          //     </Text>
+          //     </TouchableWithoutFeedback>
+          //   </View>    
+        }
         
 
         <ActionSheet
@@ -528,6 +580,27 @@ export default class Login extends Component<Props> {
         
       </View>
     );
+  }
+
+  onClickGuestUser() {
+
+    obj = JSON.stringify({
+      isGuestUser:'1',
+      UsersTypeId: 1,
+      UserName: 'Guest User',
+      email: '',
+      UserImagePath:''
+    })               
+    AsyncStorage.setItem("SIGNINSTATUS", "1");
+    AsyncStorage.setItem("USERDETAIL",obj);
+      // Reset Navigation 
+        const resetAction = NavigationActions.reset({
+          index: 0,
+          actions: [                                               
+              NavigationActions.navigate({ routeName: 'home' })
+          ]
+      });
+      this.props.navigation.dispatch(resetAction);
   }
 
   loadForgotPasswordView() {

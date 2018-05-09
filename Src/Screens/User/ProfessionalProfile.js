@@ -20,6 +20,8 @@ import {
   NetInfo,
   ActivityIndicator,
   Linking,
+  Alert,
+  AsyncStorage,
 } from 'react-native';
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
@@ -30,6 +32,7 @@ import Events from 'react-native-simple-events';
 import ws from 'Domingo/Src/Screens/GeneralClass/webservice';
 import  Rating from 'react-native-easy-rating'
 import LS from 'Domingo/Src/Screens/GeneralClass/LocalizationStrings';
+import { NavigationActions } from 'react-navigation';
 
 
 export const STATUSBAR_HEIGHT  = Platform.OS === 'ios' ? 0 : StatusBar.currentHeight;
@@ -48,13 +51,25 @@ export default class ProfessionalProfile extends Component<Props> {
       arrCategory:this.getStaticData(),
       fullDetail:{},
       isShowHud:false,
+      userDetail:{},
     };
   }
 
   componentDidMount() {
+    this.getLoginUserDetail()
     Events.on('receiveResponse', 'receiveResponseProfessionalProfile', this.onReceiveResponse.bind(this))
     Events.on('reloadProfessionalData', 'reloadProfessionalDataProfessionalProfile', this.reloadProfessionalData.bind(this))
     this.reloadProfessionalData()
+  }
+
+  getLoginUserDetail() {
+    AsyncStorage.getItem("USERDETAIL").then((value) => {
+      console.log("user signup",value) 
+      userDetail = JSON.parse(value)      
+        this.setState({
+            userDetail:userDetail,
+        })
+    }).done();
   }
 
   reloadProfessionalData () {
@@ -672,7 +687,31 @@ export default class ProfessionalProfile extends Component<Props> {
 
   onClickReview() {
     console.log("onClickReview:=")
-    this.props.navigation.push('reviewScreen',{fullDetail:this.state.fullDetail})
+    if ('isGuestUser' in this.state.userDetail) {
+      Alert.alert(
+        'Guest User',
+        'You are guest user, Please login to access this feature',
+        [
+          {text: LS.LString.cancelText, onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          {text: LS.LString.okText, onPress: () => this.onClickLoginForGuest()},
+        ],
+        { cancelable: false }
+      )
+    }
+    else {
+      this.props.navigation.push('reviewScreen',{fullDetail:this.state.fullDetail})
+    }
+  }
+
+  onClickLoginForGuest() {
+    AsyncStorage.removeItem('SIGNINSTATUS')
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [
+          NavigationActions.navigate({ routeName: 'login' })
+      ]
+    });
+    this.props.navigation.dispatch(resetAction);
   }
 
   onClickFacebook() {
