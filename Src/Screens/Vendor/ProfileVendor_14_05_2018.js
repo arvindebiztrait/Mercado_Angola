@@ -561,7 +561,7 @@ export default class ProfileVendor extends Component<Props> {
           // height:Constant.DEVICE_HEIGHT - STATUSBAR_HEIGHT,
           height:850,
           flexDirection:'column',
-          flex:2286,
+          flex:2186,
         }}>
           <TouchableWithoutFeedback style={{
                 
@@ -608,7 +608,7 @@ export default class ProfileVendor extends Component<Props> {
         </View>
         
         <View style={{
-            flex:2202,
+            flex:2102,
             alignItems:'center',            
         }}>
           <View style={{
@@ -701,7 +701,7 @@ export default class ProfileVendor extends Component<Props> {
 
             {/* Description */}
             <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
-                flex:200,
+                flex:100,
                 marginLeft:15,
                 marginRight:15,
                 borderColor:'grey',
@@ -718,8 +718,6 @@ export default class ProfileVendor extends Component<Props> {
                 paddingBottom:Platform.ios === 'ios' ? 0 : 5,
                 height:Platform.ios === 'ios' ? 23 : 32,
                 paddingHorizontal:0,
-                flex:200,
-                textAlignVertical:'top'
               }}
                 placeholder= {LS.LString.descText}
                 allowFontScaling={false}
@@ -731,8 +729,7 @@ export default class ProfileVendor extends Component<Props> {
                 value={this.state.description}
                 autoCapitalize='none'
                 onChangeText={(text) => this.setState({description:text})} 
-                // onSubmitEditing={(event) => this.refs['facebook'].focus()}  
-                multiline={true}
+                onSubmitEditing={(event) => this.refs['facebook'].focus()}  
                 // onBlur= {this.onBlurTextInput.bind(this)} 
                 />
             </View>
@@ -1764,7 +1761,7 @@ removeImageFromLocalArray(rowData) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2048+176+100,
+    flex: 2048+176,
     flexDirection: 'column',
     // justifyContent: 'center',
     // alignItems: 'center',

@@ -28,6 +28,16 @@
       android:icon="@mipmap/ic_launcher"
       android:theme="@style/AppTheme">
 
+        <!-- <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider> -->
+
         <receiver android:name="com.evollu.react.fcm.FIRLocalMessagingPublisher"/>
         <receiver android:enabled="true" android:exported="true"  android:name="com.evollu.react.fcm.FIRSystemBootEventReceiver">
             <intent-filter>
@@ -72,6 +82,7 @@
       <meta-data
       android:name="com.google.android.geo.API_KEY"
       android:value="AIzaSyCVdqxM9cfcV80RorJXnx0G6z9UXIV7BO8"/>
+      
     </application>
 
 </manifest>

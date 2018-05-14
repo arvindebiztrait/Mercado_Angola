@@ -219,6 +219,7 @@ export default class ReviewScreen extends Component<Props> {
                 paddingHorizontal:0,
                 paddingTop:0,
                 margin:5,
+                textAlignVertical:'top'
               }}
                 placeholder= {LS.LString.descriptionPlaceholderText}
                 allowFontScaling={false}

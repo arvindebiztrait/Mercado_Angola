@@ -247,7 +247,8 @@ export default class Login extends Component<Props> {
             flex:320,
             // width:100
           }}
-          source={require('Domingo/Src/images/logo.png')}
+          // source={require('Domingo/Src/images/logo.png')}
+          source={require('Domingo/Src/images/login_logo_slogan.png')}
           resizeMode='contain'
           />
         </View>

@@ -667,12 +667,19 @@ export default class MenuScreen extends Component<Props> {
 
   onClickShareButton() {
     console.log("onClickShareButton")
-    var strMsg = "Mercado Angola Application For IOS Link: " + "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8" + " Android Link: " + "https://play.google.com/store/apps/details?id=com.domingo"
-
+    var strMsg = ""
+    
+    if (Platform.OS === 'ios') {
+      strMsg = "Mercado Angola Application For IOS Link: " + "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8" + " Android Link: " + "https://play.google.com/store/apps/details?id=com.domingo"
+    }
+    else {
+      strMsg = "Mercado Angola Application For Android Link:" + "https://play.google.com/store/apps/details?id=com.domingo" + " IOS Link: " + "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8"
+    }
+    
     let shareOptions = {
       title: "Mercado Angola",
       message: strMsg,
-      url: Platform.OS === 'ios' ? "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8" : "https://play.google.com/store/apps/details?id=com.domingo",
+      url: Platform.OS === 'ios' ? "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8"  : "https://play.google.com/store/apps/details?id=com.domingo", //Platform.OS === 'ios' ? "https://itunes.apple.com/us/app/mercado-angola/id1380062670?ls=1&mt=8" : "https://play.google.com/store/apps/details?id=com.domingo",
       subject: "Share Mercado Angola" //  for email
     };
 

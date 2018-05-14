@@ -90,7 +90,7 @@ let Localization = new LocalizedStrings({
         vEditProfileText:'Please click on edit icon to edit details',
         vDescriptionText:'Please enter description',
         industryPlaceHolderText:'Profession Type / Industry',
-        freeSubscriptionNotesText:'Free Subscription plan will expire on 31/07/18',
+        freeSubscriptionNotesText:'Free Subscription plan will expire on 15/08/18',
 
         //Settings Screen
         settingsTitle:'SETTINGS',
@@ -246,7 +246,7 @@ let Localization = new LocalizedStrings({
         vEditProfileText:'Clicar no icon Detalhes para editar detalhes',
         vDescriptionText:'Inserir a descrição',
         industryPlaceHolderText:'Profissão Type / industria',
-        freeSubscriptionNotesText:'Registra-se gratis, promocao termina dia 31/07/18',
+        freeSubscriptionNotesText:'Registra-se gratis, promocao termina dia 15/08/18',
 
         //Settings Screen
         settingsTitle:'Configurações',
