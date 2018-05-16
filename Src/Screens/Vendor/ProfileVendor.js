@@ -1065,14 +1065,21 @@ export default class ProfileVendor extends Component<Props> {
             </View>
           </View>
         </View>
-        <View style={{
+        {/* <View style={{
             flex:126
         }}>
         
-        </View>        
+        </View>         */}
         {this.loadChangePasswordView()}
         
         </View>
+
+        <View style={{
+          // backgroundColor:'red',
+        }} ><Text style={{
+          margin:10,
+          textAlign:'center',
+        }}>{LS.LString.vendorNotes}</Text></View>
 
         <ActionSheet
           ref='industrySheet'

@@ -91,6 +91,7 @@ let Localization = new LocalizedStrings({
         vDescriptionText:'Please enter description',
         industryPlaceHolderText:'Profession Type / Industry',
         freeSubscriptionNotesText:'Free Subscription plan will expire on 15/08/18',
+        vendorNotes:'As a service provider you will not be able to see your own advertisement using the same email account. If you want to see the ad ask another user.',
 
         //Settings Screen
         settingsTitle:'SETTINGS',
@@ -247,6 +248,7 @@ let Localization = new LocalizedStrings({
         vDescriptionText:'Inserir a descrição',
         industryPlaceHolderText:'Profissão Type / industria',
         freeSubscriptionNotesText:'Registra-se gratis, promocao termina dia 15/08/18',
+        vendorNotes:'Como um prestador de serviços não conseguirá ver o seu próprio anúncio usando a mesma conta email. Se querer ver o anúncio pedir a um outro usuário.',
 
         //Settings Screen
         settingsTitle:'Configurações',
