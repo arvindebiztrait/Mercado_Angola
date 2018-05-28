@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.6</string>
+	<string>1.0.7</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
@@ -50,9 +50,9 @@
 	<string>This app requires calender access to function properly.</string>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires camera access to function properly.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) is using your device location to search near by user of $(PRODUCT_NAME)</string>
 	<key>NSLocationAlwaysUsageDescription</key>
+	<string>$(PRODUCT_NAME) is using your device location to search near by user of $(PRODUCT_NAME)</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>$(PRODUCT_NAME) is using your device location to search near by user of $(PRODUCT_NAME)</string>
 	<key>NSMotionUsageDescription</key>
 	<string>This app requires motion access to function properly.</string>
@@ -71,7 +71,7 @@
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Launch Screen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

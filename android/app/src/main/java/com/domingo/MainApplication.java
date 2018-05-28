@@ -3,6 +3,20 @@ package com.domingo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import cl.json.RNSharePackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.mustansirzia.fused.FusedLocationPackage;
+import com.evollu.react.fcm.FIRMessagingPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
+import cl.json.RNSharePackage;
+import com.airbnb.android.react.maps.MapsPackage;
+import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.mustansirzia.fused.FusedLocationPackage;
+import com.evollu.react.fcm.FIRMessagingPackage;
 import cl.json.RNSharePackage;
 import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
@@ -31,6 +45,20 @@ public class MainApplication extends Application implements ShareApplication, Re
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SplashScreenReactPackage(),
+            new RNSharePackage(),
+            new MapsPackage(),
+            new ReactNativeLocalizationPackage(),
+            new ImagePickerPackage(),
+            new FusedLocationPackage(),
+            new FIRMessagingPackage(),
+            new SplashScreenReactPackage(),
+            new RNSharePackage(),
+            new MapsPackage(),
+            new ReactNativeLocalizationPackage(),
+            new ImagePickerPackage(),
+            new FusedLocationPackage(),
+            new FIRMessagingPackage(),
             new RNSharePackage(),
             new ReactNativeLocalizationPackage(),
             new SplashScreenReactPackage(),

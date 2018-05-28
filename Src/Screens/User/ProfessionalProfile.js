@@ -405,7 +405,8 @@ export default class ProfessionalProfile extends Component<Props> {
 
   loadAboutView() {
     var strDisc = ''
-    if(this.state.fullDetail.length) {
+    console.log("this.state.fullDetail:=",this.state.fullDetail)
+    if(this.state.fullDetail.Discription) {
       console.log("strDisc:= true",strDisc)
       strDisc = this.state.fullDetail.Discription
     }

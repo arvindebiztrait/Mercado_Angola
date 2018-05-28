@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -34,6 +33,7 @@
 		C88AB8E6206277610023E974 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C88AB8C6206277370023E974 /* libRCTPushNotification.a */; };
 		C8B01B8D2071F9F300DDA591 /* libReactNativeLocalization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B01B862071F9E500DDA591 /* libReactNativeLocalization.a */; };
 		C8D5EB8B206CB67C00DABD2E /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8D5EB8A206CB66900DABD2E /* libSplashScreen.a */; };
+		C8EA074A20BC111C00A89856 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8EA074920BC111C00A89856 /* Launch Screen.storyboard */; };
 		CE83CD3266224F6281BAB362 /* libReactNativePermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8B8EAB960AF4187A956F332 /* libReactNativePermissions.a */; };
 		D45CDF6F309A4E1BAA4372CF /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D81B67A8F39748B1BED456C4 /* libAirMaps.a */; };
 		F05FF270B7C4997091B1C0E8 /* libPods-Domingo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CF6C6D8E9FB63F88804213 /* libPods-Domingo.a */; };
@@ -434,6 +434,7 @@
 		C8B01B582071F9E500DDA591 /* ReactNativeLocalization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeLocalization.xcodeproj; path = "../node_modules/react-native-localization/ReactNativeLocalization.xcodeproj"; sourceTree = "<group>"; };
 		C8B8EAB960AF4187A956F332 /* libReactNativePermissions.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePermissions.a; sourceTree = "<group>"; };
 		C8D5EB57206CB66900DABD2E /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
+		C8EA074920BC111C00A89856 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D66C87E328914417B418AD4D /* libRNFIRMessaging.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFIRMessaging.a; sourceTree = "<group>"; };
 		D81B67A8F39748B1BED456C4 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		ED0D69D952DF77DA0318AF47 /* Pods-Domingo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domingo-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Domingo-tvOSTests/Pods-Domingo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -581,6 +582,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				C8EA074920BC111C00A89856 /* Launch Screen.storyboard */,
 			);
 			name = Domingo;
 			sourceTree = "<group>";
@@ -1388,6 +1390,7 @@
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C82E05EE2075EC5D0037E388 /* GoogleService-Info.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				C8EA074A20BC111C00A89856 /* Launch Screen.storyboard in Resources */,
 				73248C04655A44B5A92AF315 /* Oswald-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1697,7 +1700,6 @@
 			baseConfigurationReference = 7847EC9E07578DCE4FF6EB02 /* Pods-Domingo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Domingo/Domingo.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -1731,7 +1733,6 @@
 			baseConfigurationReference = 5E6B23041EA5553F242E1116 /* Pods-Domingo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = Domingo/Domingo.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;

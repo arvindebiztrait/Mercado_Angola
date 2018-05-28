@@ -64,7 +64,7 @@ let Localization = new LocalizedStrings({
         profileText:'Profile',
         homeText:'Home',
         settingsText:'Settings',
-        aboutUsText:'About Us',
+        aboutUsText:'How it Works',
         helpText:'Help',
         logoutText:'Logout',
         vSwitchUserText:'You are currently end user, are you sure to become vendor?',
@@ -75,7 +75,7 @@ let Localization = new LocalizedStrings({
 
         //ProfileVendor Screen
         profileCapText:'PROFILE',
-        descText:'Description',
+        descText:'Services you offer?',
         fLinkText:'Facebook Link',
         tLinkText:'Twitter Link',
         gLinkText:'Google Link',
@@ -88,7 +88,7 @@ let Localization = new LocalizedStrings({
         vOldPassText:'Please enter old password',
         vPasswordText:'Please enter password',
         vEditProfileText:'Please click on edit icon to edit details',
-        vDescriptionText:'Please enter description',
+        vDescriptionText:'Please enter Services you offer?',
         industryPlaceHolderText:'Profession Type / Industry',
         freeSubscriptionNotesText:'Free Subscription plan will expire on 15/08/18',
         vendorNotes:'As a service provider you will not be able to see your own advertisement using the same email account. If you want to see the ad ask another user.',
@@ -113,7 +113,7 @@ let Localization = new LocalizedStrings({
         paymentText3:'Please don\'t press back button or cancel while we are generating reference.',
 
         //About Us
-        aboutUsCapText:'ABOUT US',
+        aboutUsCapText:'HOW IT WORKS',
 
         //Help Screen
         helpCapText:'HELP',
@@ -221,7 +221,7 @@ let Localization = new LocalizedStrings({
         profileText:'Perfil',
         homeText:'Home',
         settingsText:'Configurações',
-        aboutUsText:'Sobre nos',
+        aboutUsText:'Como Funciona',
         helpText:'Ajuda',
         logoutText:'Sair',
         vSwitchUserText:'É comprador de serviços, quer se tornar vendedor de serviços?',
@@ -232,7 +232,7 @@ let Localization = new LocalizedStrings({
 
         //ProfileVendor Screen
         profileCapText:'Perfil',
-        descText:'Descrição',
+        descText:'Serviços que ofereces?',
         fLinkText:'Facebook Link',
         tLinkText:'Twitter Link',
         gLinkText:'Google Link',
@@ -245,7 +245,7 @@ let Localization = new LocalizedStrings({
         vOldPassText:'Inserir a senha antiga',
         vPasswordText:'Inserir a senha',
         vEditProfileText:'Clicar no icon Detalhes para editar detalhes',
-        vDescriptionText:'Inserir a descrição',
+        vDescriptionText:'Inserir a Serviços que ofereces?',
         industryPlaceHolderText:'Profissão Type / industria',
         freeSubscriptionNotesText:'Registra-se gratis, promocao termina dia 15/08/18',
         vendorNotes:'Como um prestador de serviços não conseguirá ver o seu próprio anúncio usando a mesma conta email. Se querer ver o anúncio pedir a um outro usuário.',
@@ -270,7 +270,7 @@ let Localization = new LocalizedStrings({
         paymentText3:'Favor nao clicar no botão retroceder enquanto o codigo esta sendo gerado',
 
         //About Us
-        aboutUsCapText:'SOBRE NOS',
+        aboutUsCapText:'COMO FUNCIONA',
 
         //Help Screen
         helpCapText:'AJUDA',
