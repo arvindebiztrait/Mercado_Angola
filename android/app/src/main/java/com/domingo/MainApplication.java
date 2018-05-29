@@ -10,20 +10,6 @@ import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.mustansirzia.fused.FusedLocationPackage;
 import com.evollu.react.fcm.FIRMessagingPackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import cl.json.RNSharePackage;
-import com.airbnb.android.react.maps.MapsPackage;
-import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
-import com.imagepicker.ImagePickerPackage;
-import com.mustansirzia.fused.FusedLocationPackage;
-import com.evollu.react.fcm.FIRMessagingPackage;
-import cl.json.RNSharePackage;
-import com.babisoft.ReactNativeLocalization.ReactNativeLocalizationPackage;
-import org.devio.rn.splashscreen.SplashScreenReactPackage;
-import com.airbnb.android.react.maps.MapsPackage;
-import com.imagepicker.ImagePickerPackage;
-import com.mustansirzia.fused.FusedLocationPackage;
-import com.evollu.react.fcm.FIRMessagingPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -49,20 +35,6 @@ public class MainApplication extends Application implements ShareApplication, Re
             new RNSharePackage(),
             new MapsPackage(),
             new ReactNativeLocalizationPackage(),
-            new ImagePickerPackage(),
-            new FusedLocationPackage(),
-            new FIRMessagingPackage(),
-            new SplashScreenReactPackage(),
-            new RNSharePackage(),
-            new MapsPackage(),
-            new ReactNativeLocalizationPackage(),
-            new ImagePickerPackage(),
-            new FusedLocationPackage(),
-            new FIRMessagingPackage(),
-            new RNSharePackage(),
-            new ReactNativeLocalizationPackage(),
-            new SplashScreenReactPackage(),
-            new MapsPackage(),
             new ImagePickerPackage(),
             new FusedLocationPackage(),
             new FIRMessagingPackage()
