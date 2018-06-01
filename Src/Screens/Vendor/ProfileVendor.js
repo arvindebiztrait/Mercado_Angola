@@ -561,7 +561,7 @@ export default class ProfileVendor extends Component<Props> {
           // height:Constant.DEVICE_HEIGHT - STATUSBAR_HEIGHT,
           height:850,
           flexDirection:'column',
-          flex:2286,
+          flex:2386,
         }}>
           <TouchableWithoutFeedback style={{
                 
@@ -608,12 +608,12 @@ export default class ProfileVendor extends Component<Props> {
         </View>
         
         <View style={{
-            flex:2202,
+            flex:2302,
             alignItems:'center',            
         }}>
           <View style={{
             backgroundColor:'white',
-            flex:2102,
+            flex:2202,
             width:'75%',
             borderWidth:1,
             borderColor:'rgba(198,199,201,1)',
@@ -701,11 +701,11 @@ export default class ProfileVendor extends Component<Props> {
 
             {/* Description */}
             <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
-                flex:200,
+                flex:300,
                 marginLeft:15,
                 marginRight:15,
-                borderColor:'grey',
-                borderBottomWidth:1,
+                // borderColor:'grey',
+                // borderBottomWidth:1,
                 // flexDirection:'row',
                 // justifyContent:'center',
                 // alignItems:'center'
@@ -718,8 +718,13 @@ export default class ProfileVendor extends Component<Props> {
                 paddingBottom:Platform.ios === 'ios' ? 0 : 5,
                 height:Platform.ios === 'ios' ? 23 : 32,
                 paddingHorizontal:0,
-                flex:200,
-                textAlignVertical:'top'
+                flex:300,
+                textAlignVertical:'top',
+                borderWidth:1,
+                borderColor:'grey',
+                borderRadius:2,
+                padding: 5,
+                paddingLeft: 5
               }}
                 placeholder= {LS.LString.descText}
                 allowFontScaling={false}
@@ -1095,7 +1100,7 @@ export default class ProfileVendor extends Component<Props> {
         
         </KeyboardAwareScrollView>
 
-        {this.loadFreeSubscriptionNotesView()}
+        {/* {this.loadFreeSubscriptionNotesView()} */}
 
         { isShowHud == true ? <ActivityIndicator
                     color={'rgba(0,165,235,1)'}    //rgba(254,130,1,0.5)'
