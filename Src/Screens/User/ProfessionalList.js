@@ -255,7 +255,7 @@ export default class ProfessionalList extends Component<Props> {
   }
 
   renderRow(rowdata) {
-    console.log("row data inside",rowdata);
+    // console.log("row data inside",rowdata);
     var imgUrl = rowdata.ImagePath;
    return ( <TouchableHighlight underlayColor = {'transparent'} onPress={this.onClickOnListView.bind(this,rowdata)}>
             <View style = {{

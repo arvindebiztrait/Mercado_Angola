@@ -484,7 +484,7 @@ export default class SubCategory extends Component {
   }
 
   renderRow(rowdata) {
-    console.log("row data inside",rowdata);
+    // console.log("row data inside",rowdata);
     return ( //<TouchableHighlight underlayColor = {'transparent'} onPress={this.onClickOnListView.bind(this,rowdata)}>
             <View style = {{
               // height:200,

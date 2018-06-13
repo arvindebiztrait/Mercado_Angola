@@ -58,6 +58,7 @@ export default class SignUp extends Component<Props> {
         industry:'',
         industryIds:'',
         contact:'',
+        price:'',
         password:'',
         confirmPassword:'',
         arrUserType:[LS.LString.cancelText,LS.LString.userText,LS.LString.vendorText],
@@ -207,41 +208,39 @@ export default class SignUp extends Component<Props> {
         });
     }
 
-    onWebServiceCallingForSignUp()
-    {
+    onWebServiceCallingForSignUp() {
          NetInfo.isConnected.fetch().then(isConnected => {
             console.log(isConnected)
             console.log('First, is ' + (isConnected ? 'online' : 'offline'));
              
-              if(isConnected)
-              {
-                     var param = {
-                         'UserName': this.state.name,
-                         'BusinessName': this.state.businessName,
-                         'Address': this.state.address,
-                         'Phone': this.state.contact,
-                         'UsersTypeId': this.state.userType === 'Vendor' ? 2 : 1,
-                         'Password': this.state.password,
-                         'Email': this.state.email,
-                         'Industry': this.state.userType === 'Vendor' ? this.state.industryIds : '',
-                         'City': this.state.city,
-                         'AreaName':this.state.areaName,
-                         'StateName': this.state.street,
-                         'CountryName': this.state.country,
-                         'Latitude': this.state.latitude,
-                         'Longitude': this.state.longitude,
-                        //  'image': null,
-                         'image':this.state.photoResponse != null ?  this.state.userImage : null
-                     }
-                     console.log("param is ",param);
-                     this.setState({
-                       isShowHud : true
-                     })
-                     ws.callWebservicewithImage('SignUp',param,'')
-                    //  ws.callGlobalWebservice("bardetail",param);
+              if(isConnected) {
+                  var param = {
+                      'UserName': this.state.name,
+                      'BusinessName': this.state.businessName,
+                      'Address': this.state.address,
+                      'Phone': this.state.contact,
+                      'UsersTypeId': this.state.userType === 'Vendor' ? 2 : 1,
+                      'Password': this.state.password,
+                      'Email': this.state.email,
+                      'Industry': this.state.userType === 'Vendor' ? this.state.industryIds : '',
+                      'City': this.state.city,
+                      'AreaName':this.state.areaName,
+                      'StateName': this.state.street,
+                      'CountryName': this.state.country,
+                      'Latitude': this.state.latitude,
+                      'Longitude': this.state.longitude,
+                      'Price': this.state.userType === 'Vendor' ? this.state.price : 0,
+                    //  'image': null,
+                      'image':this.state.photoResponse != null ?  this.state.userImage : null
+                  }
+                  console.log("param is ",param);
+                  this.setState({
+                    isShowHud : true
+                  })
+                  ws.callWebservicewithImage('SignUp',param,'')
+                //  ws.callGlobalWebservice("bardetail",param);
               }
-              else 
-              {
+              else {
                   alert(Constant.NETWORK_ALERT)
               }
         });
@@ -323,7 +322,7 @@ export default class SignUp extends Component<Props> {
         </View>
         
         <View style={{
-            flex:2102,
+            flex:2102+176,
             alignItems:'center',            
         }}>
           <View style={{
@@ -539,7 +538,7 @@ export default class SignUp extends Component<Props> {
                 value={this.state.email}
                 autoCapitalize='none'
                 onChangeText={(text) => this.setState({email:text})} 
-                onSubmitEditing={(event) => this.refs['contact'].focus()}  
+                onSubmitEditing={(event) => this.refs['price'].focus()}  
                 // onBlur= {this.onBlurTextInput.bind(this)} 
                 />
             </View>
@@ -586,8 +585,47 @@ export default class SignUp extends Component<Props> {
             }}>
             </View>
             </View>
-            : undefined }
+            : undefined }            
+
+            {/* Service Price */}
+            {this.state.userType === LS.LString.vendorText ?
+            <View style= {{
+              flex:176,
+            }}>
+            <View style={{
+                flex:100,
+                marginLeft:15,
+                marginRight:15,
+                borderColor:'grey',
+                borderBottomWidth:1,
+            }}>
+              <TextInput style={{
+                paddingBottom:Platform.ios === 'ios' ? 0 : 5,
+                height:Platform.ios === 'ios' ? 23 : 32,
+                paddingHorizontal:0,
+              }}
+                placeholder= {LS.LString.priceText}
+                allowFontScaling={false}
+                ref='price'   
+                keyboardType='number-pad'
+                returnKeyType='next'
+                placeholderTextColor='rgba(79,90,105,1)'
+                underlineColorAndroid='transparent'
+                value={this.state.price}
+                autoCapitalize='none'
+                secureTextEntry = {false}
+                onChangeText={(text) => this.setState({price:text})} 
+                onSubmitEditing={(event) => this.refs['contact'].focus()}  
+                // onBlur= {this.onBlurTextInput.bind(this)} 
+                />
+            </View>
             
+            <View style={{
+                flex:76,
+            }}>
+            </View>
+            </View>
+            : undefined }
 
             {/* Contact */}
             <View style={{
@@ -1025,6 +1063,10 @@ export default class SignUp extends Component<Props> {
     }
     else if (this.state.userType === 'Vendor' && this.state.industry == '') {
       alert(LS.LString.vIndustryText)
+      return false
+    }
+    else if (this.state.userType === 'Vendor' && this.state.price == '') {
+      alert(LS.LString.vPriceText)
       return false
     }
     else if (this.state.userType === 'Vendor' && this.state.contact == '') {

@@ -133,6 +133,7 @@ export default class ProfessionalProfile extends Component<Props> {
   render() {
     var isShowHud = this.state.isShowHud;
     var imgUrl = this.state.fullDetail.UserImagePath
+    var price = this.state.fullDetail.Price ? this.state.fullDetail.Price : ''
     return (
       <View style={styles.container}>
         <KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>
@@ -242,7 +243,7 @@ export default class ProfessionalProfile extends Component<Props> {
             <View style={{
               // backgroundColor:'green',
               width:'100%',
-              height:290,
+              height:275,
               alignItems:'center',
               paddingTop:100,
               // borderWidth:1,
@@ -328,7 +329,25 @@ export default class ProfessionalProfile extends Component<Props> {
                 </TouchableWithoutFeedback>
               </View>
             </View>
-
+            {price > 0 ? 
+                <View style={{
+                  // backgroundColor:'red',
+                  flexDirection: 'row',
+                  justifyContent:'center',
+                }}>
+                    <Text style={{
+                      fontSize:17,
+                    }}>{LS.LString.servicePriceText}: </Text>
+                    <Text style={{
+                      fontSize:17,
+                    }}>{20}</Text>
+                    <Text style={{
+                      fontSize:17,
+                    }}> €</Text>
+                </View>
+              :
+              undefined
+            }
             <View style={{
               marginLeft:15,
               marginRight:15,
@@ -479,7 +498,7 @@ export default class ProfessionalProfile extends Component<Props> {
   }
 
   renderRowGallery(rowdata) {
-    console.log("row data inside",rowdata);
+    // console.log("row data inside",rowdata);
     var imgUrl = rowdata.ImagePath;
    return ( <TouchableHighlight underlayColor = {'transparent'} onPress={this.onClickOnGalleryView.bind(this,rowdata)}>
             <View style = {{
@@ -571,7 +590,7 @@ export default class ProfessionalProfile extends Component<Props> {
   }
 
   renderRowReview(rowdata) {
-    console.log("row data inside",rowdata);
+    // console.log("row data inside",rowdata);
     var imgUrl = rowdata.UserImage;
    return ( <TouchableHighlight underlayColor = {'transparent'} onPress={this.onClickOnReviewView.bind(this,rowdata)}>
             <View style = {{

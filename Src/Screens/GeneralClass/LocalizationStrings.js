@@ -36,6 +36,7 @@ let Localization = new LocalizedStrings({
         nameText:'Name',
         addressText:'Address',
         contactText:'Contact',
+        priceText:'My Price for service ...',
         passwordText:'Password',
         cPasswordText:'Confirm Password',
         selAddressText:'SELECT ADDRESS',
@@ -50,6 +51,7 @@ let Localization = new LocalizedStrings({
         vEmailText:'Please enter email',
         vvEmailText:'Please enter valid email',
         vIndustryText:'Please select industry',
+        vPriceText:'Please enter price',
         vContactText:'Please enter contact',
         vvContactText:'Contact number should be 9 digits long.',
         vPasswordText:'Please enter password',
@@ -146,6 +148,7 @@ let Localization = new LocalizedStrings({
         noCallText:'Call features is not supported by device',
         noFeatureSupportedText:'This featues is not supported by your device',
         notSetUrlText:'Vendor has not set url',
+        servicePriceText: 'Service Price',
 
         //Give Review Screen
         giveReviewTitle:'GIVE REVIEW',
@@ -193,6 +196,7 @@ let Localization = new LocalizedStrings({
         nameText:'Nome',
         addressText:'Endereço',
         contactText:'Contacto',
+        priceText:'Meu Preço pelo serviço ...',
         passwordText:'Senha',
         cPasswordText:'Confirmar senha',
         selAddressText:'Selecione o endereço',
@@ -207,6 +211,7 @@ let Localization = new LocalizedStrings({
         vEmailText:'Inserir o email',
         vvEmailText:'Inserir email valido',
         vIndustryText:'Selecione a industria',
+        vPriceText:'Inserir o Preço pelo serviço',
         vContactText:'Inserir o contacto',
         vvContactText:'Numero de Contato necessita 9 digitos',
         vPasswordText:'Inserir a senha',
@@ -303,6 +308,7 @@ let Localization = new LocalizedStrings({
         noCallText:'Chamada não suportada pelo seu aparelho',
         noFeatureSupportedText:'Funcionalidade não suportada pelo seu aparelho',
         notSetUrlText:'Vendedor não tem URL',
+        servicePriceText: 'Preço de Serviço',
 
         //Give Review Screen
         giveReviewTitle:'AVALIE',

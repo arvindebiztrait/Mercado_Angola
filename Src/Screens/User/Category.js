@@ -273,7 +273,7 @@ export default class Category extends Component<Props> {
   }
 
   renderRow(rowdata) {
-    console.log("row data inside",rowdata);
+    // console.log("row data inside",rowdata);
     var imgUrl = rowdata.CategoryImage;
    return ( <TouchableHighlight underlayColor = {'transparent'} onPress={this.onClickOnListView.bind(this,rowdata)}>
             <View style = {{

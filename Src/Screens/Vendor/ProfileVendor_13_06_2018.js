@@ -58,7 +58,6 @@ export default class ProfileVendor extends Component<Props> {
         email:'',
         industry:'',
         industryIds:'',
-        price:'',
         contact:'',
         password:'',
         confirmPassword:'',
@@ -179,8 +178,7 @@ export default class ProfileVendor extends Component<Props> {
             tweeterLink:responceData.Results.twitterID,
             contact:responceData.Results.Phone,
             email:responceData.Results.Email,
-            price: responceData.Results.Price > 0 ? String(responceData.Results.Price) : '' //? responceData.Results.Price : ''
-          },console.log("price:=responceData.Results.Price ",responceData.Results.Price))
+          })
           if ("UserGalaryObj" in responceData.Results) {
             var arrGalImage = responceData.Results.UserGalaryObj
             var newGalImg = [{'ImageIndex':'0', source : { uri: 'Domingo/Src/images/upload.png' }}]
@@ -407,7 +405,6 @@ export default class ProfileVendor extends Component<Props> {
           'GoogleID':this.state.googleLink,
           'twitterID':this.state.tweeterLink,
           'Phone':this.state.contact,
-          'Price':this.state.price,
         }
         console.log("param is ",param);
         this.setState({
@@ -562,9 +559,9 @@ export default class ProfileVendor extends Component<Props> {
       <KeyboardAwareScrollView keyboardShouldPersistTaps={'handled'}>   
         <View style = {{
           // height:Constant.DEVICE_HEIGHT - STATUSBAR_HEIGHT,
-          height:900,
+          height:850,
           flexDirection:'column',
-          flex:2386+176,
+          flex:2386,
         }}>
           <TouchableWithoutFeedback style={{
                 
@@ -611,12 +608,12 @@ export default class ProfileVendor extends Component<Props> {
         </View>
         
         <View style={{
-            flex:2302+176,
+            flex:2302,
             alignItems:'center',            
         }}>
           <View style={{
             backgroundColor:'white',
-            flex:2202+176,
+            flex:2202,
             width:'75%',
             borderWidth:1,
             borderColor:'rgba(198,199,201,1)',
@@ -696,40 +693,6 @@ export default class ProfileVendor extends Component<Props> {
                 />
             </View>
             </TouchableWithoutFeedback>
-            
-            <View style={{
-                flex:76,
-            }}>
-            </View>
-
-            {/* Price */}
-            <View pointerEvents={this.state.isEditable ? 'auto' : 'none'} style={{
-                flex:100,
-                marginLeft:15,
-                marginRight:15,
-                borderColor:'grey',
-                borderBottomWidth:1,
-            }}>
-              <TextInput style={{
-                paddingBottom:Platform.ios === 'ios' ? 0 : 5,
-                height:Platform.ios === 'ios' ? 23 : 32,
-                paddingHorizontal:0,
-              }}
-                placeholder= {LS.LString.priceText}
-                allowFontScaling={false}
-                ref='price'   
-                keyboardType='number-pad'
-                returnKeyType='next'
-                placeholderTextColor='rgba(79,90,105,1)'
-                underlineColorAndroid='transparent'
-                value={this.state.price}
-                autoCapitalize='none'
-                // secureTextEntry = {true}
-                onChangeText={(text) => this.setState({price:text})} 
-                onSubmitEditing={(event) => this.refs['description'].focus()}  
-                // onBlur= {this.onBlurTextInput.bind(this)} 
-                />
-            </View>
             
             <View style={{
                 flex:76,
@@ -1789,10 +1752,6 @@ removeImageFromLocalArray(rowData) {
     }
     else if (this.state.industry == '') {
       alert(LS.LString.vIndustryText)
-      return false
-    }
-    else if (this.state.price == '') {
-      alert(LS.LString.vPriceText)
       return false
     }
     else if (this.state.description == '') {
