@@ -709,11 +709,13 @@ export default class ProfileVendor extends Component<Props> {
                 marginRight:15,
                 borderColor:'grey',
                 borderBottomWidth:1,
+                flexDirection:'row'
             }}>
               <TextInput style={{
                 paddingBottom:Platform.ios === 'ios' ? 0 : 5,
                 height:Platform.ios === 'ios' ? 23 : 32,
                 paddingHorizontal:0,
+                width:'90%'
               }}
                 placeholder= {LS.LString.priceText}
                 allowFontScaling={false}
@@ -729,6 +731,18 @@ export default class ProfileVendor extends Component<Props> {
                 onSubmitEditing={(event) => this.refs['description'].focus()}  
                 // onBlur= {this.onBlurTextInput.bind(this)} 
                 />
+
+              <Text style={{
+                  width: '10%',
+                  flex:1,
+                  // height: '100%',
+                  // justifyContent: 'center',
+                  textAlign: 'center',
+                  // textAlignVertical: 'center',
+                  fontWeight:'bold',
+                  marginTop: Platform.OS === 'ios' ? 5 : 8,
+                  // backgroundColor: 'red'
+                }}>KZ</Text>
             </View>
             
             <View style={{

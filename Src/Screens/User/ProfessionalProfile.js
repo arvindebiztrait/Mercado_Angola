@@ -340,10 +340,10 @@ export default class ProfessionalProfile extends Component<Props> {
                     }}>{LS.LString.servicePriceText}: </Text>
                     <Text style={{
                       fontSize:17,
-                    }}>{20}</Text>
+                    }}>{this.state.fullDetail.Price}</Text>
                     <Text style={{
                       fontSize:17,
-                    }}> €</Text>
+                    }}> KZ</Text>
                 </View>
               :
               undefined

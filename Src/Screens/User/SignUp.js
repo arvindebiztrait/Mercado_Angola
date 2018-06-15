@@ -368,7 +368,7 @@ export default class SignUp extends Component<Props> {
             </TouchableWithoutFeedback>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
@@ -408,7 +408,7 @@ export default class SignUp extends Component<Props> {
             </View>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
@@ -448,7 +448,7 @@ export default class SignUp extends Component<Props> {
             </View>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
@@ -511,7 +511,7 @@ export default class SignUp extends Component<Props> {
             </TouchableWithoutFeedback>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
             
@@ -544,7 +544,7 @@ export default class SignUp extends Component<Props> {
             </View>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
@@ -581,49 +581,64 @@ export default class SignUp extends Component<Props> {
             </TouchableWithoutFeedback>
 
             <View style={{
-              flex:76,
+              flex: Platform.OS === 'ios' ? 76 : 50, // 76,
             }}>
             </View>
             </View>
             : undefined }            
 
-            {/* Service Price */}
-            {this.state.userType === LS.LString.vendorText ?
-            <View style= {{
-              flex:176,
-            }}>
-            <View style={{
-                flex:100,
-                marginLeft:15,
-                marginRight:15,
-                borderColor:'grey',
-                borderBottomWidth:1,
-            }}>
-              <TextInput style={{
-                paddingBottom:Platform.ios === 'ios' ? 0 : 5,
-                height:Platform.ios === 'ios' ? 23 : 32,
-                paddingHorizontal:0,
-              }}
-                placeholder= {LS.LString.priceText}
-                allowFontScaling={false}
-                ref='price'   
-                keyboardType='number-pad'
-                returnKeyType='next'
-                placeholderTextColor='rgba(79,90,105,1)'
-                underlineColorAndroid='transparent'
-                value={this.state.price}
-                autoCapitalize='none'
-                secureTextEntry = {false}
-                onChangeText={(text) => this.setState({price:text})} 
-                onSubmitEditing={(event) => this.refs['contact'].focus()}  
-                // onBlur= {this.onBlurTextInput.bind(this)} 
-                />
-            </View>
-            
-            <View style={{
-                flex:76,
-            }}>
-            </View>
+              {/* Service Price */}
+              {this.state.userType === LS.LString.vendorText ?
+              <View style= {{
+                flex:176,
+              }}>
+                <View style={{
+                    flex:100,
+                    marginLeft:15,
+                    marginRight:15,
+                    borderColor:'grey',
+                    borderBottomWidth:1,
+                    flexDirection: 'row',
+                    // backgroundColor: 'red'
+                }}>
+                  <TextInput style={{
+                    paddingBottom:Platform.ios === 'ios' ? 0 : 5,
+                    height:Platform.ios === 'ios' ? 23 : 32,
+                    paddingHorizontal:0,
+                    // backgroundColor: 'green',
+                    width: '90%'
+                  }}
+                    placeholder= {LS.LString.priceText}
+                    allowFontScaling={false}
+                    ref='price'   
+                    keyboardType='number-pad'
+                    returnKeyType='next'
+                    placeholderTextColor='rgba(79,90,105,1)'
+                    underlineColorAndroid='transparent'
+                    value={this.state.price}
+                    autoCapitalize='none'
+                    secureTextEntry = {false}
+                    onChangeText={(text) => this.setState({price:text})} 
+                    onSubmitEditing={(event) => this.refs['contact'].focus()}  
+                    // onBlur= {this.onBlurTextInput.bind(this)} 
+                    />
+                    <Text style={{
+                      width: '10%',
+                      flex:1,
+                      // height: '100%',
+                      // justifyContent: 'center',
+                      textAlign: 'center',
+                      // textAlignVertical: 'center',
+                      fontWeight:'bold',
+                      marginTop: Platform.OS === 'ios' ? 5 : 8,
+                      // backgroundColor: 'red'
+                    }}>KZ</Text>
+                </View>
+              
+                <View style={{
+                    flex: Platform.OS === 'ios' ? 76 : 50,
+                }}>
+              </View>
             </View>
             : undefined }
 
@@ -657,7 +672,7 @@ export default class SignUp extends Component<Props> {
             </View>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
@@ -691,7 +706,7 @@ export default class SignUp extends Component<Props> {
             </View>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
@@ -725,7 +740,7 @@ export default class SignUp extends Component<Props> {
             </View>
             
             <View style={{
-                flex:76,
+                flex: Platform.OS === 'ios' ? 76 : 50, //76,
             }}>
             </View>
 
